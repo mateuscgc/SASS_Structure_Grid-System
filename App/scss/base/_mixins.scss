@@ -1,3 +1,9 @@
+@mixin phone($resolution, $variable: min-width){
+    @media screen and ($variable: $resolution){
+        @content;
+    }
+}
+
 @mixin grid-system($number, $key){
     $variable : 8.333333334%;
     $size: length($key);
