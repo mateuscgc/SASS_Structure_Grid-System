@@ -1,0 +1,39 @@
+.row {
+  margin-right: -15px;
+  margin-left: -15px; }
+  .row::before, .row::after {
+    display: table;
+    content: " "; }
+  .row::after {
+    clear: both; }
+
+body,
+body > div {
+  width: 100%; }
+
+body > div {
+  background: yellow; }
+
+.col {
+  height: 50px;
+  background-color: black;
+  position: relative;
+  float: left;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .col {
+      width: 33.33333%; } }
+  @media screen and (min-width: 992px) {
+    .col {
+      width: 25.0%; } }
+  @media screen and (min-width: 0px) {
+    .col {
+      margin-left: 25.0%; } }
+  @media screen and (min-width: 768px) {
+    .col {
+      margin-left: 16.66667%; } }
+  @media screen and (min-width: 992px) {
+    .col {
+      margin-left: 8.33333%; } }
+
+/*# sourceMappingURL=main.css.map */

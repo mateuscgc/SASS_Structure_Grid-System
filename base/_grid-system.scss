@@ -1,0 +1,41 @@
+@function device-min-width ($key) {
+    @each $size in $min-sizes {
+        @if($key == nth($size, 1)) {
+            @return nth($size, 2);
+        }
+    }
+}
+
+// You can only specify the sizes you want to change, but they must be in order xs, sm, md, lg
+@mixin grid-system($keys, $numsCols) {
+    position: relative;
+    float: left;
+    width: 100%;
+    @for $i from 1 to length($numsCols) + 1 {
+        @media screen and (min-width: device-min-width(nth($keys, $i))) {
+            width: nth($numsCols, $i)*$colSize;
+        }
+    }
+}
+
+// You can only specify the sizes you want to change, but they must be in order xs, sm, md, lg
+@mixin grid-system-offset($keys, $numsCols) {
+    @for $i from 1 to length($numsCols) + 1 {
+        @media screen and (min-width: device-min-width(nth($keys, $i))) {
+            margin-left: nth($numsCols, $i)*$colSize;
+        }
+    }
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+    &::before,
+    &::after {
+        display: table;
+        content: " ";
+    }
+    &::after{
+        clear: both;
+    }
+}

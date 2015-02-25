@@ -1,0 +1,17 @@
+@import "base/_all";
+
+body,
+body > div{
+    width: 100%;
+}
+
+body > div {
+    background: yellow;
+}
+
+.col {
+    height: 50px;
+    background-color: black;
+    @include grid-system(("sm" "md"), (4 3));
+    @include grid-system-offset(("xs" "sm" "md"), (3 2 1));
+}
