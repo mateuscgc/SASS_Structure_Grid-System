@@ -1,0 +1,89 @@
+@mixin grid-system($number, $key){
+    $variable : 8.333333334%;
+    $size: length($key);
+    position: relative;
+    float: left;
+    @for $i from 1 to ($size+1) {
+        @if(nth($key, $i) == xs){
+            width: nth($number, $i)*$variable;
+        }@elseif(nth($key, $i) == sm){
+            @include phone(768px){
+                width: nth($number, $i)*$variable;
+            }
+        }@elseif(nth($key, $i) == md){
+            @include phone(992px){
+                width: nth($number, $i)*$variable;
+            }
+        }@elseif(nth($key, $i) == lg){
+            @include phone(1200px){
+                width: nth($number, $i)*$variable;
+            }
+        }
+    }
+}
+
+@mixin grid-system-offset($number, $key){
+    $variable : 8.333333334%;
+    $size: length($key);
+    @for $i from 1 to ($size+1) {
+        @if(nth($key, $i) == xs){
+            margin-left: nth($number, $i)*$variable;
+        }@elseif(unquote(nth($key, $i)) == sm){
+            @include phone(768px){
+                margin-left: nth($number, $i)*$variable;
+            }
+        }@elseif(nth($key, $i) == md){
+            @include phone(992px){
+                margin-left: nth($number, $i)*$variable;
+            }
+        }@elseif(nth($key, $i) == lg){
+            @include phone(1200px){
+                margin-left: nth($number, $i)*$variable;
+            }
+        }
+    }
+}
+
+@mixin row(){
+    &::before{
+        display: table;
+        content: " ";
+    }
+    &::after{
+        @extend section.notices::before;
+        clear: both;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
